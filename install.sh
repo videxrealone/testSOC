@@ -744,11 +744,6 @@ check-installed-application() {
 check-available-resources() {
   NBPROC=`nproc`
   RAM=`vmstat  -s | grep "total memory" | xargs | cut -d ' ' -f 1`
-  if [ ${NBPROC} -lt ${MINREQCPU} ] || [ ${RAM} -lt ${MINREQRAM} ]
-  then
-    log ko "4 core CPUs and 16GB of memory are required to run this application"
-    exit 1
-  fi
 }
 
 check-supported-os() {
